@@ -11,8 +11,9 @@
         <h1>GO - 学習状況</h1>
         <div>
             タイトル：URL
-            <p>制御構文 : https://go.dev/play/p/_eT5zYlPHPt</p>
-            <p>メソッドの定義 : https://go.dev/play/p/aa3QjVjN8P5</p>
+            {{ range .Contents }}
+            <p>{{.}}</p>
+            {{ end }}
         </div>
     </center>
 </body>
