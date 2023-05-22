@@ -1,0 +1,2 @@
+メソッドの定義　https://go.dev/play/p/aa3QjVjN8P5
+制御構造 https://go.dev/play/p/_eT5zYlPHPt
