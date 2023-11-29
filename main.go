@@ -37,7 +37,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request){
      for _, elm := range contentlist{
           fmt.Println(strings.Split(elm, " "))
      }
-     html, err := template.ParseFiles("./html/go_playground.html")
+     html, err := template.ParseFiles("./static/index.html")
      if err != nil {
           log.Println(err)
      }
@@ -79,9 +79,12 @@ http.ListenAndServe サーバー起動
 */
 
 func main() {
+     port := "8080"
+
      http.HandleFunc("/go", viewHandler)
      http.HandleFunc("/go/create", createHandler) // actionと同じpath
-     fmt.Println("localhost:8080")
+     http.Handle("/static/", http.StripPrefix("/static", http.FileServer(http.Dir("./static/")))) //css対応
+     fmt.Println("localhost:"+port)
      fmt.Println("Server Start Up.......")
-     log.Println(http.ListenAndServe("localhost:8080",nil))
+     log.Println(http.ListenAndServe("localhost:"+port,nil))
 }
